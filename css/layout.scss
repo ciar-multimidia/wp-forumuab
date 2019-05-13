@@ -1,0 +1,55 @@
+/////// CORES VARIAVEIS
+$preto: #212121;
+$cinza: #f9f9f9;
+
+$azul: #009AE1;
+$amarelo: #FCCE1A;
+$verde: #00A64E;
+
+
+/////// FAMILIAS VARIAVEIS
+$fonte-padrao: 'Raleway',serif;
+$fonte-icone: 'Font Awesome 5 Free';
+
+
+/////// MEDIA QUERIES e TAMANHOS
+$container: 1150px;
+$tablet: 990px;
+$smart-maior: 680px;
+$smart-menor: 500px;
+$celular: 380px;
+$sidebar: 330px;
+
+
+/////// IMPORTACOES
+@import "bourbon/bourbon";
+@import "padroes/reset";
+@import "padroes/mixins";
+@import "padroes/fontface";
+@import "padroes/predefinicoes";
+@import "padroes/fancybox";
+
+
+/////// LAYOUT
+body, html {overflow-x: hidden;}
+body {
+	font-weight: normal;
+	font-style: normal;
+	font-size: 15px;
+	line-height: 1.9;
+	color: $preto;
+	min-height: 100vh;
+	font-family: $fonte-padrao;
+	letter-spacing: 0.04em;
+	position: relative;
+
+	@media (max-width: $smart-maior) {
+		font-size: 14px;
+	}
+	@media (max-width: $celular) {
+		font-size: 13px;
+	}
+}
+
+
+@import "layout/cabecalho";

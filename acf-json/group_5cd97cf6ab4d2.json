@@ -1,0 +1,48 @@
+{
+    "key": "group_5cd97cf6ab4d2",
+    "title": "Configurações gerais do layout",
+    "fields": [
+        {
+            "key": "field_5cd97d0fa4e8c",
+            "label": "Banner da página inicial",
+            "name": "banner_home",
+            "type": "image_crop",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "crop_type": "hard",
+            "target_size": "banner_home",
+            "width": "",
+            "height": "",
+            "preview_size": "medium",
+            "force_crop": "yes",
+            "save_in_media_library": "yes",
+            "retina_mode": "no",
+            "save_format": "url",
+            "library": "all"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "ciar-opcoes"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1557757361
+}

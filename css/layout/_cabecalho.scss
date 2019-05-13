@@ -1,0 +1,123 @@
+$alturamenu: 38px;
+$alturadetalhe: 18px;
+
+#barra-site {
+	background: $verde;
+	height: $alturamenu;
+	line-height: $alturamenu;
+	display: block;
+	position: relative;
+	color: white;
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 0.09em;
+
+	&:after {
+		width: 100%;
+		height: $alturadetalhe;
+		position: absolute;
+		content: "";
+		background: url('../img/detalhe-top.svg') no-repeat center top / 100% $alturadetalhe;
+		bottom: - $alturadetalhe;
+	}
+
+	.container {
+		text-align: right;
+
+		ul {
+			display: inline-block;
+			margin: 0;
+
+			li {
+				display: inline-block;
+				margin-left: 25px;
+
+				&.mostra-mobile {
+					display: none;
+					@media (max-width: $smart-menor) {display: inline-block;}
+				}
+
+				&:first-child {margin-left:0;}
+
+				a:hover {text-decoration: underline;}
+			}
+		}
+	}
+}
+
+
+#cabecalho {
+	@include flex(space-between);
+	@include align-items(center);
+	padding: $alturamenu 0;
+	font-size: 0.95em;
+
+
+	a.marca {
+		width: 315px;
+		display: block;
+	}
+
+	ul {
+		display: inline-block;
+		margin: 0;
+
+		li {
+			display: inline-block;
+			margin-left: 25px;
+			text-transform: uppercase;
+			font-weight: bold;
+			// letter-spacing: 0.09em;
+
+			&:first-child {margin-left:0;}
+
+			a {
+				color: darken($verde,8%);
+				display: inline-block;
+				position: relative;
+
+				&:after {
+					content: '';
+					width: 0;
+					height: 3px;
+					position: absolute;
+					background: $amarelo;
+					bottom: 0;
+					left: 0;
+					@include transform(translateY(100%));
+					@include transition(width 0.2s ease-in-out);
+				}
+
+				&:hover {
+					color: darken($azul,8%);
+
+					&:after {width: 100%;}
+				}
+
+
+				&.button:after {display: none;}
+			}
+		}
+	}
+}
+
+
+#banner-home {
+	width: 100%;
+	max-height: 495px;
+	overflow: hidden;
+	position: relative;
+
+	&:after {
+		@include blocoabsoluto;
+		background: darken($azul,10%);
+		opacity: 0.65;
+		content: '';
+	}
+	
+	img {
+		width: 100%;
+		@include filter(grayscale(100%));
+	}
+}
