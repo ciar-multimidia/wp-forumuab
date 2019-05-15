@@ -152,6 +152,17 @@ function ciar_get_excerpt($out_excerpt) {
 
 
 // ========================================//
+// CONVERTE LINK VIDEO PARA EMBED
+// ========================================//
+function ciar_video_youtube($string) {
+    return preg_replace(
+        "/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
+        "<iframe src=\"//www.youtube.com/embed/$2?enablejsapi=1&amp;rel=0&amp;controls=0&amp;showinfo=0\" frameborder=\"0\" allowfullscreen></iframe>",
+        $string
+    );
+}
+
+// ========================================//
 // SEGURANCA
 // ========================================// 
 // remover versão do wp nos scripts 

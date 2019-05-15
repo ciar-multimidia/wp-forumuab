@@ -1,9 +1,10 @@
 <?php /* Template Name: Página Inicial */
 get_header();
 
+////////////////////////////////////////////////////////////////////////
 echo '<section id="ultimas-novidades" class="container">';
 
-	//////// NOVIDADES - NOTICIAS, EDITAIS E EVENTOS
+	// NOVIDADES
 	echo '<div class="novidades">';
 
 		echo '<aside>';
@@ -37,7 +38,7 @@ echo '<section id="ultimas-novidades" class="container">';
 
 
 
-	//////// CHAMADAS BANNERS
+	// CHAMADAS BANNERS
 	echo '<div class="chamadas">';
 		echo '<a href="https://educapes.capes.gov.br/" target="_blank"><img src="https://www.capes.gov.br/images/banners/banner-uab-educapes.png"></a>';
 		echo '<a href="https://sisuab2.capes.gov.br/sisuab2/login.xhtml/" target="_blank"><img src="https://www.capes.gov.br/images/banners/04-06-2018-banner-sisuab-uab.jpg"></a>';
@@ -46,9 +47,22 @@ echo '<section id="ultimas-novidades" class="container">';
 	echo '</div>';
 
 
+echo '</section>';
 
 
+////////////////////////////////////////////////////////////////////////
+echo '<section id="experiencias">';
+	echo '<div class="container">';
 
+		echo '<div class="video">'; 
+			echo '<figure>'; 
+				$videodestaque = 'https://www.youtube.com/watch?v=14EyODpXQtg';
+				echo ciar_video_youtube($videodestaque);
+			echo '</figure>';
+		echo '</div>';
+		
+		echo 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat recusandae in quo commodi facilis ratione quas laborum maiores quos incidunt earum quidem neque';
+	echo '</div>';
 echo '</section>';
 
 get_footer();

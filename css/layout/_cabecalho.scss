@@ -1,5 +1,4 @@
 $alturamenu: 38px;
-$alturadetalhe: 18px;
 
 #barra-site {
 	background: $verde;
@@ -15,11 +14,11 @@ $alturadetalhe: 18px;
 
 	&:after {
 		width: 100%;
-		height: $alturadetalhe;
+		height: $margem;
 		position: absolute;
 		content: "";
-		background: url('../img/detalhe-top.svg') no-repeat center top / 100% $alturadetalhe;
-		bottom: - $alturadetalhe;
+		background: url('../img/detalhe-top.svg') no-repeat center top / 100% $margem;
+		bottom: - $margem;
 	}
 
 	.container {

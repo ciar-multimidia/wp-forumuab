@@ -20,6 +20,8 @@ $smart-menor: 500px;
 $celular: 380px;
 $sidebar: 330px;
 
+$margem: 20px;
+
 
 /////// IMPORTACOES
 @import "bourbon/bourbon";
@@ -54,3 +56,4 @@ body {
 
 @import "layout/cabecalho";
 @import "layout/home";
+@import "layout/rodape";

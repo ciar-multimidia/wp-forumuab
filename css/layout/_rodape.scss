@@ -1,0 +1,24 @@
+#rodape-site {
+	width: 100%;
+	background: #2969BD;
+	color: white;
+
+	&.pagina-interna {margin-top: $margem * 3;}
+
+	.container {
+		padding-top: $margem * 2;
+		padding-bottom: $margem * 2;
+	}
+
+	.creditos {
+		background: #245FAC;
+		text-align: center;
+		padding: $margem / 2;
+		font-weight: bold;
+		font-size: 10px; 
+		letter-spacing: 0.09em;
+		text-transform: uppercase;
+
+		a {text-decoration: underline;}
+	}
+}
