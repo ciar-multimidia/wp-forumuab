@@ -1,6 +1,6 @@
 #rodape-site {
 	width: 100%;
-	background: #2969BD;
+	background: darken($azul,5%);
 	color: white;
 
 	&.pagina-interna {margin-top: $margem * 3;}
@@ -11,7 +11,7 @@
 	}
 
 	.creditos {
-		background: #245FAC;
+		background: darken($azul,10%);
 		text-align: center;
 		padding: $margem / 2;
 		font-weight: bold;
