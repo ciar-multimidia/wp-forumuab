@@ -27,6 +27,11 @@
     &:after { clear: both; }
 }
 
+
+@mixin sombra() {
+    box-shadow: 0 0 18px transparentize(black,0.9);
+}
+
 @include keyframes(tornarVisivel) {
     0%{opacity: 0;}
     100%{opacity: 1;}

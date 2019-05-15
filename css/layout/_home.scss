@@ -1,0 +1,91 @@
+$margem: 20px;
+
+#ultimas-novidades {
+	margin-top: -80px;
+
+	.novidades {
+		width: 100%;
+		@include flex(space-between);
+		@include flex-wrap(nowrap);
+
+		aside {
+			background: white;
+			@include sombra;
+			margin-left: $margem;
+			margin-bottom: $margem;
+			padding: $margem;
+
+			&:first-of-type {margin-left: 0;}
+
+			header {
+				width: 100%;
+				margin-bottom: $margem / 2;
+				padding-top: $margem;
+				@include flex(space-between);
+				@include flex-wrap(nowrap);
+				@include align-items(flex-end);
+				position: relative;
+
+				&:before {
+					width: 80px;
+					height: 8px;
+					background: black;
+					content: "";
+					top: 0; left: 0;
+					position: absolute;
+				}
+
+				h1 {display: inline-block;}
+
+				a.vermais {
+					color: $preto;
+					display: inline-block;
+					font-weight: 900;
+					font-size: 12px; 
+					letter-spacing: 0.09em;
+					text-transform: uppercase;
+
+					&:hover {text-decoration: underline;}
+
+					&:after {
+						content: '\f30b';
+						font-family: $fonte-icone;
+						margin-left: $margem / 2;
+					}
+				}
+			}
+			
+			&:nth-of-type(1) {
+				a:not(.vermais) {color: $amarelo;}
+				header:before {background: $amarelo;}
+			}
+			&:nth-of-type(2) {
+				a:not(.vermais) {color: $azul;}
+				header:before {background: $azul;}
+			}
+			&:nth-of-type(3) {
+				a:not(.vermais) {color: $verde;}
+				header:before {background: $verde;}
+			}
+
+		}
+	}
+
+	.chamadas {
+		margin-top: $margem;
+		width: 100%;
+		@include flex(space-around);
+		@include align-items(center);
+
+		a {
+			max-width: calc(25% - 20px);
+			display: block;
+			margin-left: $margem;
+			margin-bottom: $margem;
+
+			&:first-of-type {margin-left: 0;}
+
+			img {width: 100%; height: auto}
+		}
+	}
+}

@@ -13,7 +13,7 @@ echo '<body class="' . join( ' ', get_body_class() ) . '">';
 
 echo '<main>';
 
-	barra_brasil();
+	if (class_exists(barra_brasil())) { barra_brasil(); }
 
 	echo '<div id="barra-site">';
 		echo '<div class="container">';
@@ -40,7 +40,6 @@ echo '<main>';
 		echo '</nav>';
 	echo '</header>';
 
-	echo '<div id="banner-home">';
-		$bannerhome = get_field('banner_home','option');
-		if ($bannerhome) { echo '<img src="'.$bannerhome.'">'; }
-	echo '</div>';
+	get_template_part('inc/banner-paginas');
+
+	

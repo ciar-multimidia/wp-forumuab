@@ -103,7 +103,7 @@ $alturadetalhe: 18px;
 }
 
 
-#banner-home {
+#banner {
 	width: 100%;
 	max-height: 495px;
 	overflow: hidden;
@@ -119,5 +119,15 @@ $alturadetalhe: 18px;
 	img {
 		width: 100%;
 		@include filter(grayscale(100%));
+	}
+
+	&.pagina-interna {
+		height: 155px;
+
+		img {
+			top: 0; left: 0;
+			position: absolute;
+			@include transform(translateY(-25%));
+		}
 	}
 }
