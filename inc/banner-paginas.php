@@ -1,6 +1,6 @@
 <?php
-
-$bannerhome = get_field('banner_home','option');
+$homepageid = get_option('page_on_front');
+$bannerhome = get_field('banner_home',$homepageid);
 $bannerclass = '';
 if(! is_front_page()) { $bannerclass = ' class="pagina-interna"'; }
 

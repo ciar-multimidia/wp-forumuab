@@ -1,5 +1,7 @@
 #ultimas-novidades {
 	margin-top: -80px;
+	position: relative;
+	z-index: 1;
 
 	.novidades {
 		width: 100%;
@@ -112,8 +114,10 @@
 		padding-bottom: $margem * 3;
 		@include flex(space-between);
 		
-		.video {
+		& > div {
 			width: calc(50% - 20px);
+			@include align-self(center);
+			
 			figure {
 				padding: 0 0 56.4%;
 				width: 100%;

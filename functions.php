@@ -6,17 +6,17 @@
 
 add_action( 'after_setup_theme', 'ciar_setup' );
 function ciar_setup() {
-    if( function_exists('acf_add_options_page') ) {
-      acf_add_options_page(array(
-        'page_title'  => 'Configurações gerais do layout',
-        'menu_title'  => 'Configurações',
-        'menu_slug'   => 'ciar-opcoes',
-        'capability'  => 'edit_posts',
-        'icon_url'    => 'dashicons-admin-generic',
-        'position'    => 3,
-        'redirect'    => false
-      ));
-    }
+    // if( function_exists('acf_add_options_page') ) {
+    //   acf_add_options_page(array(
+    //     'page_title'  => 'Configurações gerais do layout',
+    //     'menu_title'  => 'Configurações',
+    //     'menu_slug'   => 'ciar-opcoes',
+    //     'capability'  => 'edit_posts',
+    //     'icon_url'    => 'dashicons-admin-generic',
+    //     'position'    => 3,
+    //     'redirect'    => false
+    //   ));
+    // }
 
 
     // seguranca
@@ -52,6 +52,9 @@ function ciar_setup() {
 
     include_once(get_template_directory().'/func/shortcodes.php' );
     include_once(get_template_directory().'/func/blocks.php' );
+
+    add_filter( 'gutenberg_can_edit_post_type', 'desabilitar_gutenberg', 10, 2 );
+    add_filter( 'use_block_editor_for_post_type', 'desabilitar_gutenberg', 10, 2 );
 
     // menus
     register_nav_menus( array( 
@@ -97,12 +100,10 @@ function ciar_remove_customize() {
 add_action( 'wp_before_admin_bar_render', 'ciar_remove_customize' );
 
 function ciar_admin_css() {
-    // echo '<style>';
-    //   echo '#adminmenu, #adminmenu .wp-submenu, #adminmenuback, #adminmenuwrap {width: 182px;}';
-    //   echo '#wpcontent, #wpfooter { margin-left: 182px; }';
-    //   echo '#adminmenu .wp-submenu { left: 182px;}';
-    //   echo '@media (min-width: 960px) { .auto-fold .edit-post-header { left: 182px; } }';
-    // echo '</style>';
+    echo '<style>';
+      echo 'img {max-width:100%;}';
+      echo '.acf-postbox .acf-label label {font-size:22px;}';
+    echo '</style>';
 }
 add_action( 'admin_head', 'ciar_admin_css' );
 
@@ -237,6 +238,32 @@ function ciar_shortcode_paragraph_fix($content) {
     return $content;
 }
 add_filter('the_content', 'ciar_shortcode_paragraph_fix');
+
+
+// ========================================//
+// DESABILITANDO GUTENBERG NOS TEMPLATES
+// ========================================// 
+// credito: https://www.billerickson.net/disabling-gutenberg-certain-templates/
+function desabilitar_editor( $id = false ) {
+  $excluded_templates = array(
+    'front-page.php'
+  );
+  $excluded_ids = array(
+    // get_option( 'page_on_front' )
+  );
+  if( empty( $id ) )
+    return false;
+  $id = intval( $id );
+  $template = get_page_template_slug( $id );
+  return in_array( $id, $excluded_ids ) || in_array( $template, $excluded_templates );
+}
+function desabilitar_gutenberg( $can_edit, $post_type ) {
+  if( ! ( is_admin() && !empty( $_GET['post'] ) ) )
+    return $can_edit;
+  if( desabilitar_editor( $_GET['post'] ) )
+    $can_edit = false;
+  return $can_edit;
+}
 
 
 // ========================================//
