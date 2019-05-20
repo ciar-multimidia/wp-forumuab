@@ -78,14 +78,11 @@ if (! function_exists('wpseo_wpml_config') ) {
         echo '<meta property="og:type" content="article">';
         echo '<meta property="article:published_time" content="'.get_the_time('Y-m-d h:i').'">';
 
-        $category = get_the_category(); if($category[0]) { echo '<meta property="article:section" content="'.$category[0]->cat_name.'">';} 
-        $posttags = get_the_tags(); if ($posttags) { echo '<meta property="article:tag" content="'; foreach($posttags as $tag) : echo $tag->name . ','; endforeach; echo '">'; }
-
             if ( ! has_post_thumbnail( $post->ID ) ) {
                 echo '<meta property="og:image" content="'.get_template_directory_uri().'/screenshot.png">';
                 echo '<meta name="twitter:image" content="'.get_template_directory_uri().'/screenshot.png">';
                 echo '<meta itemprop="image" content="'.get_template_directory_uri().'/screenshot.png">';
-            }else {
+            } else {
                 echo '<meta property="og:image" content="'; while( have_posts() ) : the_post(); echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); endwhile; echo '">';
                 echo '<meta name="twitter:image" content="'; while( have_posts() ) : the_post(); echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); endwhile; echo '">';
                 echo '<meta itemprop="image" content="'; while( have_posts() ) : the_post(); echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); endwhile; echo '">';

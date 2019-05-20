@@ -1,4 +1,5 @@
 <?php 
+$homepageid = get_option('page_on_front');
 $footerclass = '';
 if(! is_front_page()) { $footerclass = ' class="pagina-interna"'; }
 
@@ -20,6 +21,12 @@ if(! is_front_page()) { $footerclass = ' class="pagina-interna"'; }
 
 		echo '<div class="creditos">';
 			echo 'Design, desenvolvimento e apoio: <a href="https://www.ciar.ufg.br" title="Ciar UFG">Ciar UFG</a>';
+				if( have_rows('menu_superior',$homepageid) ) { 
+					while (have_rows('menu_superior',$homepageid)) : the_row(); 
+						$pgficha = esc_url(get_sub_field('ficha'));
+						if($pgficha) { echo ' | <a href="'.$pgficha.'" title="Ficha Técnica">Ficha Técnica</a>'; }
+					endwhile; 
+				}
 		echo '</div>';
 	echo '</footer>';
 	

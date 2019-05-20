@@ -9,6 +9,7 @@
 		@include flex-wrap(nowrap);
 
 		aside {
+			min-width: $sidebar;
 			background: white;
 			@include sombra;
 			margin-left: $margem;
@@ -16,6 +17,7 @@
 			padding: $margem;
 
 			&:first-of-type {margin-left: 0;}
+			a:hover {text-decoration: underline;}
 
 			header {
 				width: 100%;
@@ -50,22 +52,24 @@
 						font-family: $fonte-icone;
 						margin-left: $margem / 2;
 					}
+
+					&:hover {text-decoration: none}
 				}
 			}
 			
 			&:nth-of-type(1) {
-				a:not(.vermais) {color: $amarelo;}
-				a:hover {color: darken($amarelo,20%);}
+				ul li i {color: $amarelo;}
+				a.vermais:hover {color: darken($amarelo,20%);}
 				header:before {background: $amarelo;}
 			}
 			&:nth-of-type(2) {
-				a:not(.vermais) {color: $azul;}
-				a:hover {color: darken($azul,10%);}
+				ul li i {color: $azul;}
+				a.vermais:hover {color: darken($azul,10%);}
 				header:before {background: $azul;}
 			}
 			&:nth-of-type(3) {
-				a:not(.vermais) {color: $verde;}
-				a:hover {color: darken($verde,10%);}
+				ul li i {color: $verde;}
+				a.vermais:hover {color: darken($verde,10%);}
 				header:before {background: $verde;}
 			}
 

@@ -10,6 +10,7 @@ function ciar_allowed_block_types( $allowed_blocks ) {
 		'core/image',
 		'core/paragraph',
 		'core/heading',
+		'core/shortcode',
 		'core/list',
 		'core/cover',
 		'core/media-text',
@@ -27,7 +28,6 @@ function ciar_allowed_block_types( $allowed_blocks ) {
 		'core-embed/instagram',
 		'core-embed/spotify',
 		'core-embed/vimeo',
-		'core-embed/tumblr',
 		'core-embed/tumblr',
 	);
 }

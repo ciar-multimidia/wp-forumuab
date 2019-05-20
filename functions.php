@@ -6,19 +6,6 @@
 
 add_action( 'after_setup_theme', 'ciar_setup' );
 function ciar_setup() {
-    // if( function_exists('acf_add_options_page') ) {
-    //   acf_add_options_page(array(
-    //     'page_title'  => 'Configurações gerais do layout',
-    //     'menu_title'  => 'Configurações',
-    //     'menu_slug'   => 'ciar-opcoes',
-    //     'capability'  => 'edit_posts',
-    //     'icon_url'    => 'dashicons-admin-generic',
-    //     'position'    => 3,
-    //     'redirect'    => false
-    //   ));
-    // }
-
-
     // seguranca
     add_filter( 'style_loader_src', 'ciar_scripts_remove_versao', 9999 );
     add_filter( 'script_loader_src', 'ciar_scripts_remove_versao', 9999 );
@@ -52,6 +39,8 @@ function ciar_setup() {
 
     include_once(get_template_directory().'/func/shortcodes.php' );
     include_once(get_template_directory().'/func/blocks.php' );
+    include_once(get_template_directory().'/func/type-eventos.php' );
+    include_once(get_template_directory().'/func/type-editais.php' );
 
     add_filter( 'gutenberg_can_edit_post_type', 'desabilitar_gutenberg', 10, 2 );
     add_filter( 'use_block_editor_for_post_type', 'desabilitar_gutenberg', 10, 2 );
@@ -88,8 +77,12 @@ function ciar_setup() {
 function ciar_menu_adm(){
   global $menu, $submenu;
 
+  $menu[5][0] = 'Notícias';
+  $menu[20][0] = 'Páginas do site';
+
   remove_menu_page( 'tools.php' );
   remove_menu_page( 'edit-comments.php' );
+
 }
 add_action( 'admin_menu', 'ciar_menu_adm', 999 );
 
@@ -101,8 +94,9 @@ add_action( 'wp_before_admin_bar_render', 'ciar_remove_customize' );
 
 function ciar_admin_css() {
     echo '<style>';
+      echo '#adminmenu .dashicons-admin-page:before { content: "\f472"; }';
       echo 'img {max-width:100%;}';
-      echo '.acf-postbox .acf-label label {font-size:22px;}';
+      echo '.inside.acf-fields > .acf-field > .acf-label > label {font-size:22px;}';
     echo '</style>';
 }
 add_action( 'admin_head', 'ciar_admin_css' );
@@ -123,7 +117,6 @@ function ciar_load_styles() {
 
     if ( is_singular() ) { wp_enqueue_script( 'comment-reply' ); }
 } 
-
 function ciar_load_scripts_head() { }
 function ciar_load_scripts_footer() { }
 
