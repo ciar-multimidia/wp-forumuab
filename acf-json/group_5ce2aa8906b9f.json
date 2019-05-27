@@ -3,11 +3,11 @@
     "title": "Página de Evento",
     "fields": [
         {
-            "key": "field_5ce2ab2e2be22",
-            "label": "Data e hora do evento",
-            "name": "evento_calendario",
-            "type": "group",
-            "instructions": "",
+            "key": "field_5ce2aa8f241bd",
+            "label": "Data do evento",
+            "name": "evento_data",
+            "type": "date_time_picker",
+            "instructions": "Selecione uma data e hora e confirme clicando no botão \"Pronto\".",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -15,42 +15,9 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_5ce2aa8f241bd",
-                    "label": "Data do evento",
-                    "name": "data",
-                    "type": "date_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "display_format": "d\/m\/Y",
-                    "return_format": "d\/m\/Y",
-                    "first_day": 0
-                },
-                {
-                    "key": "field_5ce2aacd241be",
-                    "label": "Hora do evento",
-                    "name": "horario",
-                    "type": "time_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "display_format": "g:i a",
-                    "return_format": "g:i a"
-                }
-            ]
+            "display_format": "d\/m\/Y H:i",
+            "return_format": "Y-m-d H:i:s",
+            "first_day": 0
         }
     ],
     "location": [
@@ -64,11 +31,11 @@
     ],
     "menu_order": 0,
     "position": "acf_after_title",
-    "style": "seamless",
+    "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1558358948
+    "modified": 1558970091
 }

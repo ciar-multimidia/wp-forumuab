@@ -10,9 +10,20 @@ echo '<section id="ultimas-novidades" class="container">';
 	echo '<div class="novidades">';
 
 		$numposts = 6;
+		$type_eventos = 'uabeventos';
+		$type_editais = 'uabeditais';
+
+
 		$loopnoticias = array('showposts' => $numposts, 'post_type' => 'post');
-		$loopeventos = array('showposts' => $numposts, 'post_type' => 'uabeventos');
-		$loopeditais = array('showposts' => $numposts, 'post_type' => 'uabeditais');
+		$loopeventos = array(
+			'showposts' => $numposts, 
+			'post_type' => $type_eventos, 
+			'order' => 'DESC',
+			'orderby' => 'meta_value',
+			'meta_key' => 'evento_data',
+			'meta_type' => 'DATETIME', 
+		);
+		$loopeditais = array('showposts' => $numposts, 'post_type' => $type_editais);
 
 		$noticias = new WP_Query($loopnoticias);
 		if ( $noticias->have_posts() ) {
@@ -36,11 +47,14 @@ echo '<section id="ultimas-novidades" class="container">';
 			echo '<aside>';
 				echo '<header>';
 					echo '<h1>Eventos</h1>';
-					echo '<a href="#" class="vermais">ver tudo</a>';
+					echo '<a href="'.get_post_type_archive_link($type_eventos).'" class="vermais">ver tudo</a>';
 				echo '</header>';
 				echo '<ul>';
 					while ( $eventos->have_posts() ) { $eventos->the_post();
-					echo '<li><a href="#"><time datetime="2011-01-12">04/04/19</time> <i class="far fa-calendar-alt"></i> <strong>'.get_the_title().'</strong></a><li>';
+						$timestamp = get_field('evento_data');
+						$data = date_i18n("d/m/Y", strtotime($timestamp));
+
+						echo '<li><a href="#"><time datetime="'.$timestamp.'">'; echo $data; echo '</time> <i class="far fa-calendar-alt"></i> <strong>'.get_the_title().'</strong></a><li>';
 					}
 				echo '</ul>';
 			echo '</aside>';
@@ -53,7 +67,7 @@ echo '<section id="ultimas-novidades" class="container">';
 		echo '<aside>';
 				echo '<header>';
 					echo '<h1>Editais</h1>';
-					echo '<a href="#" class="vermais">ver tudo</a>';
+					echo '<a href="'.get_post_type_archive_link($type_editais).'" class="vermais">ver tudo</a>';
 				echo '</header>';
 				echo '<ul>';
 					while ( $editais->have_posts() ) { $editais->the_post();

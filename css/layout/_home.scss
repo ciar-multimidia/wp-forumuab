@@ -15,6 +15,7 @@
 			margin-left: $margem;
 			margin-bottom: $margem;
 			padding: $margem;
+			@include flex-grow(1);
 
 			&:first-of-type {margin-left: 0;}
 			a:hover {text-decoration: underline;}
