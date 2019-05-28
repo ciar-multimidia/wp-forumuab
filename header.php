@@ -20,16 +20,14 @@ echo '<main>';
 	
 	if( have_rows('menu_superior',$homepageid) ) { 
 		while (have_rows('menu_superior',$homepageid)) : the_row(); 
-			$pgdocumentos = esc_url(get_sub_field('documentos'));
-			$pgficha = esc_url(get_sub_field('ficha'));
-			$pgforum = esc_url(get_sub_field('forum'));
+			$pgdocumentos = esc_url(get_sub_field('pgdocumentos'));
+			$pgficha = esc_url(get_sub_field('pgficha'));
 
 			echo '<div id="barra-site">';
 				echo '<div class="container">';
 					echo '<ul>';
 						if($pgdocumentos) { echo '<li><a href="'.$pgdocumentos.'"><i class="fas fa-folder-open" aria-hidden="true"></i> Documentos</a></li>'; }
 						if($pgficha) { echo '<li><a href="'.$pgficha.'"><i class="fas fa-user-friends" aria-hidden="true"></i> Ficha técnica</a></li>'; }
-						if($pgforum) { echo '<li class="mostra-mobile"><a href="'.$pgforum.'"><i class="fas fa-comments" aria-hidden="true"></i> Fórum</a></li>'; }
 					echo '</ul>';
 				echo '</div>';
 			echo '</div>';
@@ -41,12 +39,23 @@ echo '<main>';
 
 		echo '<nav>';
 			echo '<ul>';
-				echo '<li><a href="#">Notícias</a></li>';
-				echo '<li><a href="#">Eventos</a></li>';
-				echo '<li><a href="#">Editais</a></li>';
-				echo '<li><a href="#">Coordenadores</a></li>';
-				echo '<li><a href="#">Experiências</a></li>';
-				echo '<li><a href="#" class="button">Acessar Forum</a></li>';
+				  wp_nav_menu ( array( 
+				    'theme_location' => 'primary', 
+				    'menu' => 'primary', 
+				    'container' => '', 
+				    'container_class' => '', 
+				    'container_id' => '', 
+				    'menu_class' => '', 
+				    'menu_id' => '', 
+				    'echo' => true, 
+				    'fallback_cb' => 'wp_page_menu', 
+				    'link_before' => '',
+				    'link_after' => '',
+				    'items_wrap' => '%3$s', 
+				    'depth' => 0, 
+				    'walker' => '' 
+				  )); 			
+				echo '<li><a href="'.get_bloginfo('url').'/foruns/" class="button">Acessar Forum</a></li>';
 			echo '</ul>';
 		echo '</nav>';
 	echo '</header>';

@@ -20,13 +20,13 @@
                 {
                     "key": "field_5ce291fba19a9",
                     "label": "Página de Documentos",
-                    "name": "documentos",
+                    "name": "pgdocumentos",
                     "type": "page_link",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "33",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -41,13 +41,13 @@
                 {
                     "key": "field_5ce29212a19aa",
                     "label": "Página de Ficha Técnica",
-                    "name": "ficha",
+                    "name": "pgficha",
                     "type": "page_link",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "33",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -57,25 +57,6 @@
                     "taxonomy": "",
                     "allow_null": 0,
                     "allow_archives": 0,
-                    "multiple": 0
-                },
-                {
-                    "key": "field_5ce295654daa0",
-                    "label": "Página do Fórum",
-                    "name": "forum",
-                    "type": "page_link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "33",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": "",
-                    "taxonomy": "",
-                    "allow_null": 0,
-                    "allow_archives": 1,
                     "multiple": 0
                 }
             ]
@@ -307,5 +288,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1558353302
+    "modified": 1559051512
 }

@@ -97,6 +97,10 @@ $alturamenu: 38px;
 
 				&.button:after {display: none;}
 			}
+
+			&.current-menu-item, &.current_page_item {
+				a:after {width: 100% !important;}
+			}
 		}
 	}
 }
