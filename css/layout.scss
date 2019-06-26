@@ -8,7 +8,8 @@ $verde: #00A64E;
 
 
 /////// FAMILIAS VARIAVEIS
-$fonte-padrao: 'Raleway',serif;
+$fonte-padrao: 'Raleway',sans-serif;
+$fonte-artigos: 'Rubik',sans-serif;
 $fonte-icone: 'Font Awesome 5 Free';
 
 
@@ -18,7 +19,9 @@ $tablet: 990px;
 $smart-maior: 680px;
 $smart-menor: 500px;
 $celular: 380px;
-$sidebar: 360px;
+$sidebar: 300px;
+
+$artigo: 760px;
 
 $margem: 20px;
 
@@ -30,6 +33,7 @@ $margem: 20px;
 @import "padroes/fontface";
 @import "padroes/predefinicoes";
 @import "padroes/fancybox";
+@import "padroes/canvas";
 
 
 /////// LAYOUT
@@ -37,24 +41,19 @@ body, html {overflow-x: hidden;}
 body {
 	font-weight: normal;
 	font-style: normal;
-	font-size: 15px;
-	line-height: 1.9;
+	font-size: 17px;
+	line-height: 1.7;
 	color: $preto;
 	min-height: 100vh;
 	font-family: $fonte-padrao;
 	letter-spacing: 0.04em;
 	position: relative;
-
-	@media (max-width: $smart-maior) {
-		font-size: 14px;
-	}
-	@media (max-width: $celular) {
-		font-size: 13px;
-	}
 }
 
 
 @import "layout/cabecalho";
 @import "layout/home";
+@import "layout/paginas";
+@import "layout/artigos";
 @import "layout/forum";
 @import "layout/rodape";

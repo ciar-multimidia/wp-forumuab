@@ -5,20 +5,15 @@
  ****************************************/
 
 .container {
-    width: $container;
+	width: 100%;
+    max-width: $container;
     margin-left: auto;
     margin-right: auto;
     padding: 0 10px;
     position: relative;
 
     @media (max-width: $container) {
-        width: 100%;
-    }
-
-    &.paginterna {
-    	max-width: $tablet;
-    	margin-top: 40px;
-    	margin-bottom: 40px;
+        max-width: 100%;
     }
 }
 
@@ -72,6 +67,7 @@ h1, h2, h3, h4, h5 {
 	display: block;
 	color: inherit;
     font-weight: 900;
+    font-family: $fonte-padrao;
 
 	a {
 		color: inherit !important;
@@ -80,20 +76,20 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-    font-size: 2em; 
+    font-size: 1.9em; 
     @media (max-width: $smart-maior) {font-size: 1.7em; }
 }
 
 h2 { 
-	font-size: 1.6em;
+	font-size: 1.5em;
 	@media (max-width: $smart-maior) {font-size: 1.4em; }
 }
 h3 { 
-	font-size: 1.45em;
+	font-size: 1.35em;
 	@media (max-width: $smart-maior) {font-size: 1.2em; }
 }
 h4 { 
-	font-size: 1.35em;
+	font-size: 1.25em;
 	@media (max-width: $smart-maior) {font-size: 1.2em; }
 }
 h5 { 
@@ -233,6 +229,7 @@ a.button, input[type="submit"], input[type="button"], button.button {
 	text-transform: uppercase;
 	white-space: nowrap;
 	border-radius: 8px;
+	line-height: inherit;
 	position: relative;
 	font-family: $fonte-padrao;
 	@include transition(background 0.3s ease-in-out, color 0.3s ease-in-out);

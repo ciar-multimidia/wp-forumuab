@@ -41,6 +41,7 @@ function ciar_setup() {
     include_once(get_template_directory().'/func/blocks.php' );
     include_once(get_template_directory().'/func/type-eventos.php' );
     include_once(get_template_directory().'/func/type-editais.php' );
+    include_once(get_template_directory().'/func/type-experiencias.php' );
 
     add_filter( 'gutenberg_can_edit_post_type', 'desabilitar_gutenberg', 10, 2 );
     add_filter( 'use_block_editor_for_post_type', 'desabilitar_gutenberg', 10, 2 );
@@ -70,6 +71,7 @@ function ciar_setup() {
 
     show_admin_bar(false);
 }
+
 
 // ========================================//
 // DEFINICOES DE MENU DE PAINEL
@@ -108,7 +110,7 @@ add_action( 'admin_head', 'ciar_admin_css' );
 // ========================================// 
 function ciar_load_styles() {  
 
-    wp_enqueue_style('fontawesome', '//use.fontawesome.com/releases/v5.8.1/css/all.css', array(), 'all', null);
+    wp_enqueue_style('fontawesome', '//use.fontawesome.com/releases/v5.8.2/css/all.css', array(), 'all', null);
     wp_enqueue_style('layout', get_template_directory_uri() . '/css/layout.css', array(), '', 'all', null); 
     
     if (function_exists('barra_brasil')) {wp_enqueue_script( 'barra-br', '//barra.brasil.gov.br/barra_2.0.js', array('jquery'), '', true);}
@@ -203,6 +205,21 @@ function ciar_autothumb($size) {
 }
 
 
+function ciar_primeira_img() {
+  global $post, $posts;
+  $first_img = '';
+  ob_start();
+  ob_end_clean();
+  $output = preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $post->post_content, $matches);
+  $first_img = $matches[1][0];
+
+  if(empty($first_img)) {
+    $first_img = ciar_autothumb('large');
+  }
+  return $first_img;
+}
+
+
 
 // ========================================//
 // BODY CLASS
@@ -234,12 +251,22 @@ add_filter('the_content', 'ciar_shortcode_paragraph_fix');
 
 
 // ========================================//
+// NAV SIMPLES ENTRE PAGS
+// ========================================// 
+add_filter('next_posts_link_attributes', 'ciar_next_posts');
+add_filter('previous_posts_link_attributes', 'ciar_prev_posts');
+function ciar_next_posts() { return 'class="dir"'; }
+function ciar_prev_posts() { return 'class="esq"'; }
+
+
+// ========================================//
 // DESABILITANDO GUTENBERG NOS TEMPLATES
 // ========================================// 
 // credito: https://www.billerickson.net/disabling-gutenberg-certain-templates/
 function desabilitar_editor( $id = false ) {
   $excluded_templates = array(
-    'front-page.php'
+    'front-page.php',
+    'page-documentos.php'
   );
   $excluded_ids = array(
     // get_option( 'page_on_front' )

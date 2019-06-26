@@ -32,15 +32,15 @@ $alturamenu: 38px;
 				display: inline-block;
 				margin-left: 25px;
 
-				&.mostra-mobile {
-					display: none;
-					@media (max-width: $smart-menor) {display: inline-block;}
-				}
-
 				&:first-child {margin-left:0;}
 
 				a:hover {text-decoration: underline;}
 			}
+		}
+
+		@media (max-width: $smart-maior) { text-align: center; }
+		@media (max-width: $celular) { 
+			ul li span {display: none;}
 		}
 	}
 }
@@ -49,8 +49,9 @@ $alturamenu: 38px;
 #cabecalho {
 	@include flex(space-between);
 	@include align-items(center);
-	padding: $alturamenu 0;
-	font-size: 0.95em;
+	padding-top: $alturamenu;
+	padding-bottom: $alturamenu;
+	font-size: 0.8em;
 
 
 	a.marca {
@@ -58,21 +59,33 @@ $alturamenu: 38px;
 		display: block;
 	}
 
-	ul {
+	nav ul {
 		display: inline-block;
 		margin: 0;
 
 		li {
 			display: inline-block;
-			margin-left: 25px;
+			margin-left: 18px;
 			text-transform: uppercase;
 			font-weight: bold;
-			// letter-spacing: 0.09em;
+			color: darken($verde,8%);
 
-			&:first-child {margin-left:0;}
+			&.menu-mobile {
+				margin-left:0; display: none;
+
+				button {
+					// @include appearance(none);
+					// font-size: 1em;
+					// color: inherit;
+					// font-family: inherit;
+					// font-weight: inherit;
+					// text-transform: inherit;
+				}
+			}
+			&:nth-of-type(2) {margin-left:0;}
 
 			a {
-				color: darken($verde,8%);
+				// color: darken($verde,8%);
 				display: inline-block;
 				position: relative;
 
@@ -101,9 +114,38 @@ $alturamenu: 38px;
 			&.current-menu-item, &.current_page_item {
 				a:after {width: 100% !important;}
 			}
+
+			@media (max-width: $container) {
+				&.menu-mobile {display: inline-block;}
+				&.menu-item {display: none;}
+			}
+		}
+	}
+
+	@media (max-width: $smart-maior) {
+		@include flex(center);
+
+		nav {
+			margin-top: $alturamenu;
+			width: 100%;
+			text-align: center;
 		}
 	}
 }
+
+
+body.post-type-archive-uabeventos #cabecalho ul li.menu-item-object-uabeventos,
+body.single-uabeventos #cabecalho ul li.menu-item-object-uabeventos,
+body.post-type-archive-uabeditais #cabecalho ul li.menu-item-object-uabeditais,
+body.single-uabeditais #cabecalho ul li.menu-item-object-uabeditais,
+body.post-type-archive-uabexperiencias #cabecalho ul li.menu-item-object-uabexperiencias,
+body.single-uabexperiencias #cabecalho ul li.menu-item-object-uabexperiencias,
+body.post-type-archive-post #cabecalho ul li.current_page_parent,
+body.single-post #cabecalho ul li.current_page_parent
+{
+	a:after {width: 100% !important;}
+}
+
 
 
 $alturabanner: 155px;
@@ -133,7 +175,7 @@ $alturabanner: 155px;
 
 		img {
 			top: 0; left: 0;
-			position: absolute;
+			position: absolute; min-width: $smart-maior;
 			@include transform(translateY(-25%));
 		}
 	}

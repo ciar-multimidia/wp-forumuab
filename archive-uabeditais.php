@@ -21,10 +21,10 @@ echo '<div class="container paginterna area-util">';
 
 	    get_template_part('inc/navegacao');
 
-	    $qde_artigos = wp_count_posts();
-		$qde_artigos_publicados = $qde_artigos->publish;
-		echo '<p><small>'.$qde_artigos_publicados; 
-			if($qde_artigos_publicados == 1) {echo ' notícia publicada'; } else {echo ' notícias publicadas';}
+	    $qde_editais = wp_count_posts('uabeditais');
+		$qde_editais_publicados = $qde_editais->publish;
+		echo '<p><small>'.$qde_editais_publicados; 
+			if($qde_editais_publicados == 1) {echo ' edital publicado'; } else {echo ' editais publicados';}
 		echo '</small></p>';
 
 	echo '</div>';

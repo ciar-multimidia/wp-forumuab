@@ -9,7 +9,7 @@ echo '<section id="ultimas-novidades" class="container">';
 	// NOVIDADES
 	echo '<div class="novidades">';
 
-		$numposts = 6;
+		$numposts = 4;
 		$type_eventos = 'uabeventos';
 		$type_editais = 'uabeditais';
 
@@ -18,10 +18,10 @@ echo '<section id="ultimas-novidades" class="container">';
 		$loopeventos = array(
 			'showposts' => $numposts, 
 			'post_type' => $type_eventos, 
-			'order' => 'DESC',
-			'orderby' => 'meta_value',
-			'meta_key' => 'evento_data',
-			'meta_type' => 'DATETIME', 
+			// 'order' => 'DESC',
+			// 'orderby' => 'meta_value',
+			// 'meta_key' => 'evento_data',
+			// 'meta_type' => 'DATETIME', 
 		);
 		$loopeditais = array('showposts' => $numposts, 'post_type' => $type_editais);
 
@@ -34,7 +34,7 @@ echo '<section id="ultimas-novidades" class="container">';
 				echo '</header>';		
 				echo '<ul>';
 					while ( $noticias->have_posts() ) { $noticias->the_post();
-					echo '<li><a href="'.get_the_permalink().'"><time datetime="'.get_the_time('Y-m-d h:i').'">'.get_the_time('m/d/Y').'</time> <i class="fas fa-circle"></i> <strong>'.get_the_title().'</strong></a><li>';
+					echo '<li><a href="'.get_the_permalink().'"><time datetime="'.get_the_time('Y-m-d h:i').'">'.get_the_time('d/m/Y').'</time> <i class="fas fa-circle"></i> <strong>'.get_the_title().'</strong></a><li>';
 					}
 				echo '</ul>';
 			echo '</aside>';
@@ -54,7 +54,8 @@ echo '<section id="ultimas-novidades" class="container">';
 						$timestamp = get_field('evento_data');
 						$data = date_i18n("d/m/Y", strtotime($timestamp));
 
-						echo '<li><a href="#"><time datetime="'.$timestamp.'">'; echo $data; echo '</time> <i class="far fa-calendar-alt"></i> <strong>'.get_the_title().'</strong></a><li>';
+						// echo '<li><a href="'.get_the_permalink().'"><time datetime="'.$timestamp.'">'; echo $data; echo '</time> <i class="far fa-calendar-alt"></i> <strong>'.get_the_title().'</strong></a><li>';
+						echo '<li><a href="'.get_the_permalink().'"><i class="far fa-calendar-alt"></i> <strong>'.get_the_title().'</strong></a><li>';
 					}
 				echo '</ul>';
 			echo '</aside>';
@@ -71,7 +72,7 @@ echo '<section id="ultimas-novidades" class="container">';
 				echo '</header>';
 				echo '<ul>';
 					while ( $editais->have_posts() ) { $editais->the_post();
-					echo '<li><a href="#"><i class="fas fa-file"></i> <strong>'.get_the_title().'</strong></a><li>';
+					echo '<li><a href="'.get_the_permalink().'"><i class="fas fa-file"></i> <strong>'.get_the_title().'</strong></a><li>';
 					}
 				echo '</ul>';
 			echo '</aside>';
@@ -83,23 +84,17 @@ echo '<section id="ultimas-novidades" class="container">';
 
 
 	// CHAMADAS BANNERS
-	if( have_rows('banners_chamada',$homepageid) ) { 
-		echo '<div class="chamadas">';
-			while (have_rows('banners_chamada',$homepageid)) : the_row(); 
-				$chamadaimg = esc_url(get_sub_field('imagem'));
-				$link = esc_url(get_sub_field('destino'));
-				echo '<a href="'.$link.'" target="_blank"><img src="'.$chamadaimg.'"></a>';
-			endwhile;
-		echo '</div>';
-	}
+	get_template_part('inc/programas-uab');
 
 echo '</section>';
 
 
 ////////////////////////////////////////////////////////////////////////
 echo '<section id="experiencias">';
-	echo '<div class="container">';
-		$videodestaque = get_field('experiencias_video',$homepageid);
+	$videodestaque = get_field('experiencias_video',$homepageid);
+	
+	echo '<div class="container'; if (empty($videodestaque)) { echo ' sem-video';} echo'">';
+		
 
 		if ($videodestaque) {
 			echo '<div class="video">'; 
@@ -116,12 +111,12 @@ echo '<section id="experiencias">';
 			while (have_rows('experiencias_texto',$homepageid)) : the_row(); 
 				$titulo = get_sub_field('titulo');
 				$apresentacao = get_sub_field('apresentacao');
-				$pagina = esc_url(get_sub_field('pagina'));
+				$pagina = get_post_type_archive_link('uabexperiencias');
 
 
 				echo '<div class="info">';
 					if ($titulo) { echo '<h1>'.$titulo.'</h1>'; }
-					if ($apresentacao) { echo $apresentacao; }
+					if ($apresentacao) { echo '<article>'.$apresentacao.'</article>'; }
 					if ($pagina) { echo '<a href="'.$pagina.'" class="button">Saiba mais</a>'; }
 				echo '</div>';
 			endwhile; 

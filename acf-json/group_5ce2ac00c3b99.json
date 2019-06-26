@@ -100,7 +100,7 @@
                 {
                     "key": "field_5ce2adc0dbba4",
                     "label": "Adicionar anexo",
-                    "name": "anexo",
+                    "name": "itemanexo",
                     "type": "file",
                     "instructions": "",
                     "required": 0,
@@ -110,8 +110,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "",
-                    "library": "",
+                    "return_format": "array",
+                    "library": "all",
                     "min_size": "",
                     "max_size": "",
                     "mime_types": ""
@@ -136,5 +136,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1558359555
+    "modified": 1560180118
 }

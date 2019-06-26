@@ -7,6 +7,7 @@ if(! is_front_page()) { $bannerclass = ' class="pagina-interna"'; }
 
 $type_eventos = 'uabeventos';
 $type_editais = 'uabeditais';
+$type_experiencias = 'uabexperiencias';
 $type_noticias = 'post';
 $type_pags = 'page';
 
@@ -19,6 +20,10 @@ if (is_post_type_archive($type_eventos) || is_singular($type_eventos)) {
 }
 if (is_post_type_archive($type_editais) || is_singular($type_editais)) {  
 	$obj = get_post_type_object( $type_editais );
+	$categoriapag = $obj->labels->name;
+}
+if (is_post_type_archive($type_experiencias) || is_singular($type_experiencias)) {  
+	$obj = get_post_type_object( $type_experiencias );
 	$categoriapag = $obj->labels->name;
 }
 if (is_home() || is_singular($type_noticias)) { 
@@ -37,10 +42,7 @@ echo '<div id="banner"'.$bannerclass.'>';
 		echo '<div class="container">';
 
 			echo '<h1>'.$categoriapag.'</h1>';
-			if (is_singular() && ! is_singular($type_pags)) {
-				echo '<h2>'.get_the_title().'</h2>';
-			}
- 
+
 		echo '</div>';
 	}
 echo '</div>';

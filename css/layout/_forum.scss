@@ -1,11 +1,23 @@
-body.wpforo .container.paginterna {
-	max-width: $container;
-	margin-top: -33px;
-    padding: 0 10px;
-	z-index: 1;
+body.wpforo {
+	.container.paginterna {
+		margin-top: -33px;
+	    padding: 0 10px;
+		z-index: 1;
+
+		&.area-util {
+			display: block;
+		}
+	}
+
+	.coluna-maior {max-width: 100%;}
+	.compartilhar {display: none;}
 }
 
 
 #wpforo-wrap {
 	background: none;
+
+	.wpforo-profile-wrap .h-header .wpf-profile-info-wrap {
+		padding-top: 13px;
+	}
 }

@@ -11,6 +11,8 @@ get_template_part('inc/metatags');
 echo '</head>';
 echo '<body class="' . join( ' ', get_body_class() ) . '">';
 
+get_template_part('inc/menu-mobile');
+
 echo '<main>';
 
 	$homepageid = get_option('page_on_front');
@@ -23,22 +25,24 @@ echo '<main>';
 			$pgdocumentos = esc_url(get_sub_field('pgdocumentos'));
 			$pgficha = esc_url(get_sub_field('pgficha'));
 
-			echo '<div id="barra-site">';
+			echo '<div id="barra-site" aria-label="Barra de navegação rápida">';
 				echo '<div class="container">';
 					echo '<ul>';
-						if($pgdocumentos) { echo '<li><a href="'.$pgdocumentos.'"><i class="fas fa-folder-open" aria-hidden="true"></i> Documentos</a></li>'; }
-						if($pgficha) { echo '<li><a href="'.$pgficha.'"><i class="fas fa-user-friends" aria-hidden="true"></i> Ficha técnica</a></li>'; }
+						echo '<li><a href="'.get_permalink($homepageid).'"><i class="fas fa-home" aria-hidden="true"></i> <span>Página inicial</span></a></li>';
+						if($pgdocumentos) { echo '<li><a href="'.$pgdocumentos.'"><i class="fas fa-folder-open" aria-hidden="true"></i> <span>Documentos</span></a></li>'; }
+						if($pgficha) { echo '<li><a href="'.$pgficha.'"><i class="fas fa-user-friends" aria-hidden="true"></i> <span>Ficha técnica</span></a></li>'; }
 					echo '</ul>';
 				echo '</div>';
 			echo '</div>';
 		endwhile; 
 	}	
 
-	echo '<header id="cabecalho" class="container">';
+	echo '<header id="cabecalho" class="container" aria-label="Área de marca e navegação global do site">';
 		echo '<a href="'.get_bloginfo('url').'" class="marca"><img src="'.get_template_directory_uri().'/img/marca.svg" alt="'.get_bloginfo('name').'"></a>';
 
 		echo '<nav>';
 			echo '<ul>';
+				  echo '<li class="menu-mobile"><button class="button" id="bt-menu"><i class="fas fa-bars"></i> Navegar</button></li>';
 				  wp_nav_menu ( array( 
 				    'theme_location' => 'primary', 
 				    'menu' => 'primary', 
@@ -55,7 +59,7 @@ echo '<main>';
 				    'depth' => 0, 
 				    'walker' => '' 
 				  )); 			
-				echo '<li><a href="'.get_bloginfo('url').'/foruns/" class="button">Acessar Forum</a></li>';
+				echo '<li><a href="'.get_bloginfo('url').'/forum/" class="button">Acessar Forum</a></li>';
 			echo '</ul>';
 		echo '</nav>';
 	echo '</header>';

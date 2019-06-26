@@ -26,38 +26,5 @@ jQuery(document).ready(function($) {
   $('#bt-menu').on('click', function(){
     mostraCanvas();
   });  
-
   
-  //////////////////////////////////////// PEGAR ALTURAS
-  var topBar = $('#topbar');
-  var marcaHome = $('#marca-home');
-  var cabecalho = $('#cabecalho');
-  var cabecalhoCnt = $('#cabecalho .container');
-  var alturacabecalhoCnt = cabecalhoCnt.height();
-  var alturaMenuHome = topBar.height();
-  
-  marcaHome.css('padding-top', alturaMenuHome);
-  cabecalho.css('padding-top', alturaMenuHome);
-  $(".menu-interno > ul > li").css('line-height', alturacabecalhoCnt + 'px');
-  
-
-  //////////////////////////////////////// FANCYBOX
-  var abrirFancybox = $('.abre-modal');
-  abrirFancybox.on('click', function(event) {
-    var thisTarget = $(this).data('target');
-    event.preventDefault();
-    $.fancybox.open($(thisTarget));
-  });
-
-
-  // galeria gutenberg
-  var linkIMGfancybox = $('.wp-block-gallery figure a');
-  linkIMGfancybox.attr('data-fancybox', 'gallery');
-  linkIMGfancybox.fancybox({
-    caption : function( instance, item ) {
-      return $(this).siblings('figcaption').html();
-    }
-  });
-
-
 });
