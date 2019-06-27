@@ -20,7 +20,11 @@
 
 	.item-experiencia {
 		width: calc(33% - 10px); 
+		margin-bottom: $margem * 2;
 		position: relative;
+
+		@media (max-width: $tablet) { width: calc(50% - 10px) }
+		@media (max-width: $smart-menor) { width: 100% }
 
 		.thumb {
 			width: 100%;
