@@ -4,6 +4,11 @@
 
 	&.area-util {
 		@include flex(space-between);
+		@include flex-wrap(nowrap);
+
+		@media (max-width: $smart-maior) {
+			@include flex-wrap(wrap);
+		}
 	}
 }
 
@@ -12,11 +17,14 @@
 	max-width: $artigo;
 
 	body.page-template-page-full &,
-	body.post-type-archive-uabexperiencias & {max-width: 100%;}
+	body.post-type-archive-uabexperiencias & {max-width: 100%; }
 }
 
 
 .lista-experiencias {
+	width: 100%;
+	@include flex(space-between);
+	@include flex-wrap(wrap);
 
 	.item-experiencia {
 		width: calc(33% - 10px); 
@@ -50,6 +58,8 @@
 
 .lateral {
 	width: $sidebar;
+    margin-left: 40px;
+    @include flex-shrink(0);
 
 	h2, h3 {font-weight: bold;}
 
@@ -57,6 +67,21 @@
 		margin-top: $margem;
 
 		a {display: block; margin-top: $margem}
+	}
+
+	@media (max-width: $smart-maior) {
+		width: 100%;
+		margin: 50px 0 0;
+
+		.chamadas {
+			@include flex(space-between);
+
+			a {width: calc(50% - 10px)}
+		}
+	}
+
+	@media (max-width: $celular) {
+		.chamadas a {width: 100%}
 	}
 }
 

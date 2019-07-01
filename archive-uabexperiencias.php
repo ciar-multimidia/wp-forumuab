@@ -1,6 +1,6 @@
 <?php
 get_header(); 
-echo '<div class="container paginterna area-util lista-experiencias">';
+echo '<div class="container paginterna area-util"><div class="lista-experiencias">';
 	if (have_posts()) {
 		while (have_posts()) : the_post(); 
 			
@@ -21,5 +21,5 @@ echo '<div class="container paginterna area-util lista-experiencias">';
 		if($qde_relatos_publicados == 1) {echo ' relato divulgado'; } else {echo ' relatos divulgados';}
 	echo '</small></p>';
 
-echo '</div>';
+echo '</div></div>';
 get_footer(); ?>

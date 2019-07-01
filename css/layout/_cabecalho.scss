@@ -147,8 +147,6 @@ body.single-post #cabecalho ul li.current_page_parent
 }
 
 
-
-$alturabanner: 155px;
 #banner {
 	width: 100%;
 	max-height: 495px;
@@ -171,7 +169,7 @@ $alturabanner: 155px;
 	}
 
 	&.pagina-interna {
-		height: $alturabanner;
+		height: 155px;
 
 		img {
 			top: 0; left: 0;
@@ -184,8 +182,16 @@ $alturabanner: 155px;
 		z-index: 2;
 		@include flex(center);
 		@include flex-direction(column);
-		height: $alturabanner;
+		height: 155px;
 
 		h1 {font-size: 2.6em}
+	}
+
+	@media (max-width: $smart-menor) {
+		&.pagina-interna {height: 125px;}
+		.container {
+			height: 125px;
+			h1 {font-size: 2em}
+		}
 	}
 }
