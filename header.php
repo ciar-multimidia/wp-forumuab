@@ -22,15 +22,15 @@ echo '<main>';
 	
 	if( have_rows('menu_superior',$homepageid) ) { 
 		while (have_rows('menu_superior',$homepageid)) : the_row(); 
-			$pgdocumentos = esc_url(get_sub_field('pgdocumentos'));
-			$pgficha = esc_url(get_sub_field('pgficha'));
+			$pgdocumentos = get_sub_field('pgdocumentos');
+			$pgficha = get_sub_field('pgficha');
 
 			echo '<div id="barra-site" aria-label="Barra de navegação rápida">';
 				echo '<div class="container">';
 					echo '<ul>';
-						echo '<li><a href="'.get_permalink($homepageid).'"><i class="fas fa-home" aria-hidden="true"></i> <span>Página inicial</span></a></li>';
-						if($pgdocumentos) { echo '<li><a href="'.$pgdocumentos.'"><i class="fas fa-folder-open" aria-hidden="true"></i> <span>Documentos</span></a></li>'; }
-						if($pgficha) { echo '<li><a href="'.$pgficha.'"><i class="fas fa-user-friends" aria-hidden="true"></i> <span>Ficha técnica</span></a></li>'; }
+						echo '<li><a href="'.get_permalink($homepageid).'"><i class="fas fa-home" aria-hidden="true"></i> <span>Início</span></a></li>';
+						if($pgdocumentos) { echo '<li><a href="'.get_permalink($pgdocumentos).'"><i class="fas fa-folder-open" aria-hidden="true"></i> <span>'.get_the_title($pgdocumentos).'</span></a></li>'; }
+						if($pgficha) { echo '<li><a href="'.get_permalink($pgficha).'"><i class="fas fa-user-friends" aria-hidden="true"></i> <span>'.get_the_title($pgficha).'</span></a></li>'; }
 					echo '</ul>';
 				echo '</div>';
 			echo '</div>';

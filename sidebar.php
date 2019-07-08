@@ -67,7 +67,7 @@ echo '<div class="lateral">';
 
 
 	///// CHAMADAS BANNERS
-	if (is_home() || is_singular('post')) {
+	if (is_home() || is_singular('post') || is_page_template('page-documentos.php')) {
 		get_template_part('inc/programas-uab');
 
 		///// FACEBOOK UAB

@@ -26,6 +26,10 @@
 	@include flex(space-between);
 	@include flex-wrap(wrap);
 
+	article {
+		width: 100%;
+	}
+
 	.item-experiencia {
 		width: calc(33% - 10px); 
 		margin-bottom: $margem * 2;
@@ -89,7 +93,7 @@
 .compartilhar {
 	background: $cinza;
 	border-radius: 8px;
-	padding: 20px;
+	padding: $margem;
 	@include align-self(flex-start);
 
 
@@ -131,6 +135,25 @@
 				background: $verde;
 				&:hover {background: darken($verde,6%)}
 			}
+		}
+	}
+}
+
+
+.lista-docs {
+	width: 100%;
+	@include flex(space-between);
+
+	li {
+		width: calc(50% - 10px);
+		margin-bottom: $margem;
+		padding: $margem;
+		background: $cinza;
+
+		a:hover {text-decoration: underline;}
+
+		&:hover {
+			a {color: $verde}
 		}
 	}
 }

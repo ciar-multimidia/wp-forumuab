@@ -61,15 +61,15 @@ function ciar_setup() {
       'editor-font-sizes',
       array(
         array(
-          'name'      => __( 'Normal', 'engsat-afc' ),
-          'shortName' => __( 'N', 'engsat-afc' ),
+          'name'      => __( 'Normal', 'forumuab-ciar' ),
+          'shortName' => __( 'N', 'forumuab-ciar' ),
           'size'      => 16,
           'slug'      => 'normal',
         )
       )
     );
 
-    show_admin_bar(false);
+    // show_admin_bar(false);
 }
 
 

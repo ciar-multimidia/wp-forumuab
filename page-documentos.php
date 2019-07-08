@@ -8,11 +8,11 @@ get_header();
 					the_content();
 
 					if( have_rows('lista_documentos') ) { 
-						echo '<ul>';
+						echo '<ul class="lista-docs">';
 							while (have_rows('lista_documentos')) : the_row(); 
 								$arquivo = get_sub_field('arquivo');
 								$nome = get_sub_field('nome');
-								echo '<li><i class="fas fa-download"></i> <a href="'.$arquivo['url'].'" title="Baixar - '.$nome.'">'.$nome.' ('.$arquivo['filename'].')</a></li>';
+								echo '<li><h4>'.$nome.'</h4><i class="fas fa-download"></i> <a href="'.$arquivo['url'].'" title="Baixar - '.$nome.'">Baixar</a></li>';
 							endwhile;
 						echo '</ul>';
 					}

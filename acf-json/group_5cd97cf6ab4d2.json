@@ -21,7 +21,7 @@
                     "key": "field_5ce291fba19a9",
                     "label": "Página de Documentos",
                     "name": "pgdocumentos",
-                    "type": "page_link",
+                    "type": "post_object",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -30,19 +30,18 @@
                         "class": "",
                         "id": ""
                     },
-                    "post_type": [
-                        "page"
-                    ],
+                    "post_type": "",
                     "taxonomy": "",
                     "allow_null": 0,
-                    "allow_archives": 0,
-                    "multiple": 0
+                    "multiple": 0,
+                    "return_format": "id",
+                    "ui": 1
                 },
                 {
                     "key": "field_5ce29212a19aa",
                     "label": "Página de Ficha Técnica",
                     "name": "pgficha",
-                    "type": "page_link",
+                    "type": "post_object",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -51,13 +50,12 @@
                         "class": "",
                         "id": ""
                     },
-                    "post_type": [
-                        "page"
-                    ],
+                    "post_type": "",
                     "taxonomy": "",
                     "allow_null": 0,
-                    "allow_archives": 0,
-                    "multiple": 0
+                    "multiple": 0,
+                    "return_format": "id",
+                    "ui": 1
                 }
             ]
         },
@@ -218,7 +216,7 @@
                     "label": "Apresentação",
                     "name": "apresentacao",
                     "type": "textarea",
-                    "instructions": "",
+                    "instructions": "Apresentação presente tanto na página inicial quanto na lista de relatos.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -267,5 +265,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1561470828
+    "modified": 1562597967
 }

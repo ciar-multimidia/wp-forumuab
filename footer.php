@@ -7,8 +7,8 @@ if(! is_front_page()) { $footerclass = ' class="pagina-interna"'; }
 		echo '<div class="container">';
 			
 			echo '<div class="redes">';
-				echo '<a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>';
-				echo '<a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>';
+				echo '<a href="https://www.facebook.com/ForumNacionalDeCoordenadoresUAB/" title="Facebook"><i class="fab fa-facebook-f"></i></a>';
+				// echo '<a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>';
 			echo '</div>';
 			
 			echo '<div class="marcas">';

@@ -1,6 +1,15 @@
 <?php
 get_header(); 
 echo '<div class="container paginterna area-util"><div class="lista-experiencias">';
+
+	$homepageid = get_option('page_on_front');
+	if( have_rows('experiencias_texto',$homepageid) ) { while (have_rows('experiencias_texto',$homepageid)) : the_row(); 
+
+		$apresentacao = get_sub_field('apresentacao');
+		if ($apresentacao) { echo '<article>'.$apresentacao.'</article>'; }
+
+	endwhile; }
+
 	if (have_posts()) {
 		while (have_posts()) : the_post(); 
 			
