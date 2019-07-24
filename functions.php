@@ -285,8 +285,3 @@ function desabilitar_gutenberg( $can_edit, $post_type ) {
   return $can_edit;
 }
 
-
-// ========================================//
-// PLUGINS
-// ========================================// 
-include_once(get_template_directory().'/plugins.php');
