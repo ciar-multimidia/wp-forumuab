@@ -15,7 +15,10 @@ echo '<div class="container paginterna area-util"><div class="lista-experiencias
 			
 			echo '<div class="item-experiencia">'; 
 
-				echo '<div class="thumb" style="background-image: url('; echo ciar_primeira_img(); echo ');"></div>';
+				echo '<div class="thumb" style="background-image: url('; 
+					if (has_post_thumbnail()) { ciar_thumb('medium'); }
+					else { echo ciar_primeira_img();  }
+				echo ');"></div>';
 				echo '<h3>'.get_the_title().'</h3>';
 				echo '<a href="'.get_the_permalink().'" class="link"></a>';
 

@@ -31,7 +31,7 @@ function type_experiencias(){
     'menu_position' => 4,
     'exclude_from_search' => false,
     'menu_icon' => 'dashicons-testimonial',
-    'supports' => array('title','editor'),
+    'supports' => array('title','editor','thumbnail'),
     'rewrite' => array('slug' => 'experiencias')
   );
   
