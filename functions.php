@@ -285,3 +285,19 @@ function desabilitar_gutenberg( $can_edit, $post_type ) {
   return $can_edit;
 }
 
+
+
+// ========================================//
+// REDIRECIONA ASSINANTES
+// ========================================// 
+function my_login_redirect( $url, $request, $user ){
+	if( $user && is_object( $user ) && is_a( $user, 'WP_User' ) ) {
+		if( $user->has_cap( 'subscriber')) {
+			$url = home_url('/forum/');
+		} else {
+			$url = admin_url();
+		}
+	}
+	return $url;
+}
+add_filter('login_redirect', 'my_login_redirect', 10, 3 );
