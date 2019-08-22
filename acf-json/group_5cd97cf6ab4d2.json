@@ -145,6 +145,23 @@
             ]
         },
         {
+            "key": "field_5d5e73867fe79",
+            "label": "",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<hr>",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_5ce28d3bb0fc9",
             "label": "Experiências",
             "name": "",
@@ -157,9 +174,33 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Informações sobre a área de Experiências da Equipe de Coordenadores UAB",
+            "message": "Informações sobre a área de Experiências da Equipe de Coordenadores UAB.",
             "new_lines": "wpautop",
             "esc_html": 0
+        },
+        {
+            "key": "field_5d5e729a2c7c5",
+            "label": "<h5 style=\"margin:0\">Forma de apresentação<\/h5>",
+            "name": "experiencias_apresentacao",
+            "type": "radio",
+            "instructions": "Área de apresentação ao lado do texto",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "video": "Vídeo",
+                "foto": "Foto"
+            },
+            "allow_null": 1,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
         },
         {
             "key": "field_5ce28da9af072",
@@ -168,7 +209,15 @@
             "type": "oembed",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d5e729a2c7c5",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "50",
                 "class": "",
@@ -176,6 +225,38 @@
             },
             "width": "",
             "height": ""
+        },
+        {
+            "key": "field_5d5e72f82c7c6",
+            "label": "Imagem apresentação",
+            "name": "experiencias_imagem",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d5e729a2c7c5",
+                        "operator": "==",
+                        "value": "foto"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         },
         {
             "key": "field_5ce28decaf073",
@@ -265,5 +346,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1562597967
+    "modified": 1566471173
 }

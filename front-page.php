@@ -91,20 +91,26 @@ echo '</section>';
 
 ////////////////////////////////////////////////////////////////////////
 echo '<section id="experiencias">';
+	$tipo_apresentacao = get_field('experiencias_apresentacao',$homepageid);
+	$imagemdestaque = get_field('experiencias_imagem',$homepageid);
 	$videodestaque = get_field('experiencias_video',$homepageid);
 	
-	echo '<div class="container'; if (empty($videodestaque)) { echo ' sem-video';} echo'">';
+	echo '<div class="container'; if (empty($tipo_apresentacao)) { echo ' sem-video';} echo'">';
 		
 
-		if ($videodestaque) {
-			echo '<div class="video">'; 
-				echo '<figure>'; 
-					// $videodestaque = 'https://www.youtube.com/watch?v=14EyODpXQtg';
-					// echo ciar_video_youtube($videodestaque);
-					echo $videodestaque;
-				echo '</figure>';
+		
+			echo '<div>'; 
+				if ($videodestaque && $tipo_apresentacao == 'video') { 
+					echo '<figure class="video">'; 
+						echo $videodestaque;
+					echo '</figure>'; 
+				} elseif ($imagemdestaque && $tipo_apresentacao == 'foto') {
+					echo '<figure class="foto">'; 
+						echo '<img src="'.$imagemdestaque['sizes']['large'].'">';
+					echo '</figure>';
+				}
 			echo '</div>';
-		}
+		
 		
 		
 		if( have_rows('experiencias_texto',$homepageid) ) { 
