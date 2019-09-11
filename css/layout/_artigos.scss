@@ -131,6 +131,8 @@ article {
 
 	font-family: $fonte-artigos;
 
+	h1 {font-family: $fonte-artigos;}
+
 	.data-item {
 		color: lighten($preto,35%);
 		font-size: 0.8em;
